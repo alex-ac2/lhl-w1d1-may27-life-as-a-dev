@@ -1,4 +1,33 @@
-let talkingCalendar = function(date) {
+var convertMonth = function(string) {
+  switch (parseInt(string, 10)) {
+    case 1:
+      return "January";
+    case 2:
+      return "February";
+    case 3:
+      return "March";
+    case 4:
+      return "April";
+    case 5:
+      return "May";
+    case 6:
+      return "June";
+    case 7:
+      return "July";
+    case 8:
+      return "August";
+    case 9:
+      return "September";
+    case 10:
+      return "October";
+    case 11:
+      return "November";
+    case 12:
+      return "December";
+  }
+};
+
+var talkingCalendar = function(date) {
   // Your code here
   var dateComponents = date.split("/");
 
@@ -6,7 +35,9 @@ let talkingCalendar = function(date) {
   var monthString = dateComponents[1];
   var dayString = dateComponents[2];
 
-  return year;
+  var month = convertMonth(monthString);
+
+  return month + " " + year;
 };
 
 // December 2nd, 2017
