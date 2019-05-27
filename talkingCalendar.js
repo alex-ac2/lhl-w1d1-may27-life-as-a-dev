@@ -27,6 +27,36 @@ var convertMonth = function(string) {
   }
 };
 
+var generateSuffix = function(number) {
+  // switch (day) {
+  //   case 1:
+  //   case 21:
+  //   case 31:
+  //     daySuffix = "st";
+  //     break;
+  //   case 2:
+  //   case 22:
+  //     daySuffix = "nd";
+  //     break;
+  //   case 3:
+  //   case 23:
+  //     daySuffix = "rd";
+  //     break;
+  //   default:
+  //     daySuffix = "th";
+  //     break;
+  // }
+  if (number === 1 || number === 21 || number === 31) {
+    return "st";
+  } else if (number === 2 || number === 22) {
+    return "nd";
+  } else if (number === 3 || number === 23) {
+    return "rd";
+  } else {
+    return "th";
+  }
+};
+
 var talkingCalendar = function(date) {
   // Your code here
   var dateComponents = date.split("/");
@@ -36,8 +66,10 @@ var talkingCalendar = function(date) {
   var dayString = dateComponents[2];
 
   var month = convertMonth(monthString);
+  var day = parseInt(dayString, 10);
+  var daySuffix = generateSuffix(day);
 
-  return month + " " + year;
+  return month + " " + day + daySuffix + ", " + year;
 };
 
 // December 2nd, 2017
